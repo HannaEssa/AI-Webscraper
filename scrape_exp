@@ -1,0 +1,17 @@
+Detailed Explanation of Key Sections:
+    Web Scraping:
+
+        Selenium: Used for web scraping, particularly for dynamic websites that require JavaScript rendering. By
+        controlling a headless browser (a browser that runs without a UI), you can retrieve the fully rendered HTML
+        content.
+
+        Remote WebDriver: The script connects to a remote WebDriver instance, which allows you to control a browser
+        running on a server or cloud platform. This is especially useful when scraping from a location that is blocked
+        or requires a proxy.
+
+        Screenshot: This is useful for debugging purposes, allowing you to visually capture the page being scraped.
+
+    Content Extraction:
+
+        BeautifulSoup: A library that makes it easy to parse and manipulate HTML. It is used here to extract the <body>
+        tag and clean up the content by removing unnecessary tags like <script> and <style>.

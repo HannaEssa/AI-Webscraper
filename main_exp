@@ -1,0 +1,30 @@
+Detailed Explanation of Key Sections:
+
+    Streamlit Interface:
+
+        st.title("AI Web Scraper"): This sets the title of the web app that will be displayed at the top of the
+        Streamlit page.
+
+        st.text_input("Enter a Website URL:"): Displays a text box where the user can input the URL of the website they
+        want to scrape.
+
+        st.button("Scraping Site"): This button, when clicked, triggers the web scraping process.
+
+    Scraping and Cleaning:
+
+        scrape_website(url): This function, defined in scrape.py, sends a request to the provided URL and retrieves the
+        HTML content of the page.
+
+        extract_body_content(result): This function isolates the body of the webpage (typically the main content) from
+        the raw HTML.
+
+        cleaned_body_content(body_content): After extracting the body, this function cleans the content by stripping out
+        unwanted elements like <script> and <style> tags, and returning just the plain text.
+    Parsing with AI:
+
+        split_dom_content(st.session_state.dom_content): This function splits the DOM content into smaller chunks.
+        This is useful because most language models (including the Ollama model) have an input size limitation
+        (e.g., 6000 characters). The content is split into manageable chunks, each of which is parsed separately.
+
+        parse_with_ollama(dom_chunks, parse_description): This function sends each chunk of content to the AI model to
+        extract information based on the user's description (e.g., "extract all headlines").

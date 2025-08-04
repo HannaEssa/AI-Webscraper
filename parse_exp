@@ -1,0 +1,23 @@
+Detailed Explanation of Key Sections:
+    Prompt Definition:
+
+        template: This is the structured instruction (prompt) given to the Ollama model. It instructs the model to
+        extract only the specific data that matches the description provided by the user. This template ensures that the
+         AI model’s output is clean and relevant, without unnecessary information.
+
+    Model Invocation:
+
+        OllamaLLM(model="llama3.2"): Initializes the Ollama model using version 3.2 of Llama, which is a type of
+        language model.
+
+        ChatPromptTemplate.from_template(template): The ChatPromptTemplate class is used to create a prompt from the
+        template, with placeholders for dynamic content ({dom_content} and {parse_description}).
+
+
+        chain.invoke(...): This sends the prompt, along with the actual content (dom_content) and user input
+        (parse_description), to the model. The model processes the input and returns the parsed result.
+
+    Handling Multiple Chunks:
+
+        The DOM content is split into chunks using split_dom_content from main.py, so each chunk can be processed
+        independently. This ensures that the AI model does not exceed its input size limits.
